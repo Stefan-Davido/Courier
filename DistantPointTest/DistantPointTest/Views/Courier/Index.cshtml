@@ -1,0 +1,93 @@
+﻿@inject DistantPointTest.Service.Interfaces.IPricePerCourierService PricerService
+
+@model IEnumerable<DistantPointTest.Entities.Courier>
+
+<div class="row">
+    <div class="col-6">
+        <h3>Couriers</h3>
+    </div> 
+    <div class="col-6">
+        <a asp-action="Create" class="btn btn-outline-primary">Add New Courier</a>
+    </div>
+    <table class="col-12 table-bordered">
+        <tr>
+            <td>Name</td>
+            <td>Max Weight</td>
+            <td>Min Weight</td>
+            <td>Max Dimensions</td>
+            <td>Min Dimensions</td>
+            <td>Actions</td>
+        </tr>
+        @foreach (var courier in Model)
+        {
+            <tr class="bg-info">
+                <td>@courier.CourierName</td>
+                <td>@courier.MaxWeight</td>
+                <td>@courier.MinWeight</td>
+                <td>@courier.MaxDimensions</td>
+                <td>@courier.MinDimensions</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@courier.CourierId" class="btn btn-outline-success">Edit</a>
+                    <a asp-action="Details" asp-route-id="@courier.CourierId" class="btn btn-outline-primary">Info</a>
+                    <a asp-action="Delete" asp-route-id="@courier.CourierId" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>                
+
+            var pricer = PricerService.GetPricerByCourierId(courier.CourierId);
+            
+            <tr>
+                <td>Min Weight</td>
+                <td>Max Weight</td>
+                <td>Price Per Weight</td>
+                <td>Min Dimensions</td>
+                <td>Max Dimensions</td>
+                <td>Price Per Dimensions</td>
+            </tr>
+            <tr>
+                <td>@pricer.MinWeight1 kg</td>
+                <td>@pricer.MaxWeight1 kg</td>
+                <td>@pricer.PriceWeight1 $</td>
+                <td>@pricer.MinDimensions1 cm3</td>
+                <td>@pricer.MaxDimensions1 cm3</td>
+                <td>@pricer.PriceDimension1 $</td>
+            </tr>    
+            <tr>     
+                <td>@pricer.MinWeight2 kg</td>
+                <td>@pricer.MaxWeight2 kg</td>
+                <td>@pricer.PriceWeight2 $</td>
+                <td>@pricer.MinDimensions2 cm3</td>
+                <td>@pricer.MaxDimensions2 cm3</td>
+                <td>@pricer.PriceDimension2$</td>
+            </tr>    
+            <tr>     
+                <td>@pricer.MinWeight3 kg</td>
+                <td>@pricer.MaxWeight3 kg</td>
+                <td>@pricer.PriceWeight3 $</td>
+                <td>@pricer.MinDimensions3 cm3</td>
+                <td>@pricer.MaxDimensions3 cm3</td>
+                <td>@pricer.PriceDimension3 $</td>
+            </tr>    
+            <tr>     
+                <td>@pricer.MinWeight4 kg</td>
+                <td>@pricer.MaxWeight4 kg</td>
+                <td>@pricer.PriceWeight4 $</td>
+                <td>@pricer.MinDimensions4 cm3</td>
+                <td>@pricer.MaxDimensions4 cm3</td>
+                <td>@pricer.PriceDimension4 $</td>
+            </tr>
+            <tr>
+                <td>Extra Kilos</td>
+                <td>Start Price For Extra Kilos</td>
+                <td>Price per Extra Kilo/s</td>
+            </tr>
+            <tr>
+                <td>@pricer.ExtraWeight kg</td>
+                <td>@pricer.ExtraWeightPrice $</td>
+                <td>+ @pricer.AdditionalPrice $</td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="row">
+    <a asp-action="Index" asp-controller="Home">Home</a>
+</div>

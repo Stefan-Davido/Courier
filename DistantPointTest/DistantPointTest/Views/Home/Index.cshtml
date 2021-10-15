@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DistantPointTest.Entities
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model DistantPointTest.Entities.Package
+
+<div class="row m-5">
+    <h3 class="text-danger font-weight-bolder">@Html.ViewBag.Message</h3>
+    <form method="post" name="order" class="col-12 mt-3">
+        <div>
+            <div class="row">
+                <label asp-for="Width"></label>
+                <input type="text" class="form-control" id="Width" asp-for="Width" />
+            </div>
+            <div class="row">
+                <label asp-for="Depth"></label>
+                <input type="text" asp-for="Depth" id="Depth" class="form-control" />
+            </div>
+            <div class="row">
+                <label asp-for="Height"></label>
+                <input asp-for="Height" type="text" id="Height" class="form-control" />
+            </div>
+            <div class="row">
+                <label asp-for="Weight"></label>
+                <input type="text" asp-for="Weight" id="Weight" class="form-control" />
+            </div>
+            <div class="row">
+                <label asp-for="CourierName"></label>
+                <select asp-for="CourierId" asp-items="@Html.ViewBag.Cargo" class="form-control"></select>
+                <input asp-for="CourierId" id="CourierName"  hidden class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <input id="submitBtn" type="submit" class="btn btn-outline-success mt-4" value="See Price" />
+            <input asp-for="Cost" id="costInput" class="form-control mt-2" disabled="disabled" />
+        </div>
+        <input hidden asp-for="CourierId" id="CourierId"/>
+        <input hidden asp-for="UserId" id="UserId" value="@UserManager.GetUserId(User)"/>
+        @{ 
+            var user = await UserManager.GetUserAsync(User);
+            var email = await UserManager.GetEmailAsync(user);
+        }
+        <input hidden id="Email" value="@email"/>
+    </form>
+    <div class="col-12 mt-3">
+        <div class="row" id="modal">
+            <label>Make The Order</label>
+            <a class="btn btn-outline-danger form-control" data-toggle="modal" data-target="#OrderModal">Order</a>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="OrderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Are You Sure You Want to Order This Package?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Order Cost</label>
+                    <input type="text" disabled asp-for="Cost" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <button class="btn btn-success" onclick="Order()" asp-route-package="@Model" asp-action="Order">Order</button>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" asp-area="Identity" class="btn btn-success">Order</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}

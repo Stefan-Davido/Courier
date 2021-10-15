@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "formvalidation@0.6.2-dev",
+      "destination": "wwwroot/js/formvalidation/"
+    },
+    {
+      "library": "jquery-validate@1.19.3",
+      "destination": "wwwroot/js/jquery-validate/"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DistantPointTest.Entities
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<DistantPointTest.Entities.Package>
+
+<div class="row">
+    <div class="col-12">
+        <h3>All Orders</h3>
+    </div>
+    <div class="col-12">
+        @foreach (var order in Model)
+        {
+            <div class="row">
+                <table>
+                    <tr class="table-bordered">
+                        <th>@order.Cost</th>
+                        <th>@order.CourierName</th>
+                        <th>@order.cubicCM</th>
+                        <th>@order.Weight</th>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+</div>

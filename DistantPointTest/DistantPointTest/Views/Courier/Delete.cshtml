@@ -1,0 +1,177 @@
+﻿@model DistantPointTest.Models.FullCourierViewModel
+
+<div class="row">
+    <div class="col-12">
+        <h3>Courier Details</h3>
+    </div>
+    <div class="col-12">
+        <div>
+            <div class="row form-group">
+                <label>Courier Name</label>
+                <input asp-for="Courier.CourierName" disabled class="form-control" />
+            </div>
+            <div class="row form-group">
+                <div class="col-6">
+                    <label>Min Weight</label>
+                    <input asp-for="Courier.MinWeight" disabled class="form-control" />
+                </div>
+                <div class="col-6">
+                    <label>Max Weight</label>
+                    <input asp-for="Courier.MaxWeight" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-6">
+                    <label>Min Dimensions</label>
+                    <input asp-for="Courier.MinDimensions" disabled class="form-control" />
+                </div>
+                <div class="col-6">
+                    <label>Max Dimensions</label>
+                    <input asp-for="Courier.MaxDimensions" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <label>Price Per Weight</label>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Weight 1</label>
+                    <input asp-for="Pricer.MinWeight1" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Weight 1</label>
+                    <input asp-for="Pricer.MaxWeight1" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Weight 1</label>
+                    <input asp-for="Pricer.PriceWeight1" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Weight 2</label>
+                    <input asp-for="Pricer.MinWeight2" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Weight 2</label>
+                    <input asp-for="Pricer.MaxWeight2" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Weight 2</label>
+                    <input asp-for="Pricer.PriceWeight2" disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Weight 3</label>
+                    <input asp-for="Pricer.MinWeight3" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Weight 3</label>
+                    <input asp-for="Pricer.MaxWeight3" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Weight 3</label>
+                    <input asp-for="Pricer.PriceWeight3"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Weight 4</label>
+                    <input asp-for="Pricer.MinWeight4"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Weight 4</label>
+                    <input asp-for="Pricer.MaxWeight4"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Weight 4</label>
+                    <input asp-for="Pricer.PriceWeight4"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <label>Extra Weight</label>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Heavier Than</label>
+                    <input asp-for="Pricer.ExtraWeight"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Start Price</label>
+                    <input asp-for="Pricer.ExtraWeightPrice"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Additional Price Per Kilo</label>
+                    <input asp-for="Pricer.AdditionalPrice"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <label>Price Per Dimensions</label>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Dimension 1</label>
+                    <input asp-for="Pricer.MinDimensions1"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Dimension 1</label>
+                    <input asp-for="Pricer.MaxDimensions1"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Dimension 1</label>
+                    <input asp-for="Pricer.PriceDimension1"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Dimension 2</label>
+                    <input asp-for="Pricer.MinDimensions2"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Dimension 2</label>
+                    <input asp-for="Pricer.MaxDimensions2" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Dimension 2</label>
+                    <input asp-for="Pricer.PriceDimension2"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Dimension 3</label>
+                    <input asp-for="Pricer.MinDimensions3"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Dimension 3</label>
+                    <input asp-for="Pricer.MaxDimensions3"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Dimension 3</label>
+                    <input asp-for="Pricer.PriceDimension3"disabled class="form-control" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label>Min Dimension 4</label>
+                    <input asp-for="Pricer.MinDimensions4"disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Max Dimension 4</label>
+                    <input asp-for="Pricer.MaxDimensions4" disabled class="form-control" />
+                </div>
+                <div class="col-4">
+                    <label>Price Dimension 4</label>
+                    <input asp-for="Pricer.PriceDimension4"disabled class="form-control" />
+                </div>
+            </div>
+            <form method="post" class="row">
+                <input type="hidden" asp-for="Pricer.CourierId" />
+                <input type="submit" class="form-control btn btn-outline-info" value="Delete Courier" />
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <a asp-action="Index">Back To List</a>
+</div>
